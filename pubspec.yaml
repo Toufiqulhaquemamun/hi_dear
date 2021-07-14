@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   hexcolor: ^2.0.4
+  swipe_cards: ^0.1.0
 
 
 

@@ -1,29 +1,26 @@
+
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:hi_dear/screen/forgetpass.dart';
-import 'package:hi_dear/screen/registration.dart';
 
 import '../consts.dart';
 import 'home.dart';
 
-class Login extends StatefulWidget {
-  @override
-  _LoginState createState() => _LoginState();
+class ForgetPassword extends StatefulWidget
+{
+   @override
+  _ForgetPassState createState() => _ForgetPassState();
 }
-
-class _LoginState extends State<Login> {
-  bool _status = true;
-  bool _isObscure = true;
-  final FocusNode myFocusNode = FocusNode();
+class _ForgetPassState extends State<ForgetPassword>
+{
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: new Stack(
-        children: <Widget>[
+      body: Stack(
+        children: [
           new ConstrainedBox(
               constraints: const BoxConstraints.expand(),
               child: Image.asset("assets/images/glossy.png",fit: BoxFit.fitHeight,)
@@ -39,9 +36,9 @@ class _LoginState extends State<Login> {
                     children: [
                       Column(
                         children: [
-                           SizedBox(
-                             height: height * 0.3,
-                             child: Container(
+                          SizedBox(
+                            height: height * 0.071,
+                            child: Container(
                               child: new Column(
                                 children: <Widget>[
                                   Padding(
@@ -68,11 +65,11 @@ class _LoginState extends State<Login> {
 
                                 ],
                               ),
+                            ),
                           ),
-                           ),
-                           SizedBox(
-                             height: height * 0.4,
-                             child: Container(
+                          SizedBox(
+                           height:height * 0.5,
+                            child: Container(
                               child: Padding(
                                 padding: EdgeInsets.only(bottom: 0.0),
                                 child: new Column(
@@ -81,17 +78,18 @@ class _LoginState extends State<Login> {
                                   children: <Widget>[
                                     Padding(
                                         padding: EdgeInsets.only(
-                                            left: 25.0, right: 25.0, top: 25.0),
+                                            left: 25.0, right: 25.0, top: 100.0),
                                         child: new Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
                                           mainAxisSize: MainAxisSize.max,
                                           children: <Widget>[
                                             new Column(
-                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               mainAxisSize: MainAxisSize.min,
                                               children: <Widget>[
                                                 new Text(
-                                                  'Login',
+                                                  'Forgot Password',
                                                   style: TextStyle(
                                                     color: Colors.white,
                                                       fontSize: 25.0,
@@ -103,9 +101,34 @@ class _LoginState extends State<Login> {
                                               mainAxisAlignment: MainAxisAlignment.end,
                                               mainAxisSize: MainAxisSize.min,
                                               children: <Widget>[
-                                                  new Container(),
+                                               Container(
+
+                                               )
                                               ],
                                             )
+                                          ],
+                                        )),
+                                    Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 25.0, right: 25.0, top: 75.0),
+                                        child: new Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: <Widget>[
+                                            Flexible(
+                                              child: new Column(
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: <Widget>[
+                                                  new Text(
+                                                    'Enter your email address , we will send you the instructions on how to change your password',
+                                                    style: TextStyle(
+                                                        fontSize: 15.0,
+                                                        color: Colors.white,
+                                                        ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
                                           ],
                                         )),
                                     Padding(
@@ -119,9 +142,9 @@ class _LoginState extends State<Login> {
                                               mainAxisSize: MainAxisSize.min,
                                               children: <Widget>[
                                                 new Text(
-                                                  'Email',
+                                                  'Email Address',
                                                   style: TextStyle(
-                                                      color: Colors.white,
+                                                    color: Colors.white,
                                                       fontSize: 16.0,
                                                       fontWeight: FontWeight.bold),
                                                 ),
@@ -129,6 +152,7 @@ class _LoginState extends State<Login> {
                                             ),
                                           ],
                                         )),
+
                                     Padding(
                                         padding: EdgeInsets.only(
                                             left: 25.0, right: 25.0, top: 2.0),
@@ -139,76 +163,24 @@ class _LoginState extends State<Login> {
                                               child: new TextField(
                                                 decoration: const InputDecoration(
                                                   hintText: "Enter your Email",
-                                                  hintStyle: TextStyle(color: Colors.white54)
-                                                ),
-                                                enabled: _status,
-                                                autofocus: _status,
-
-                                              ),
-                                            ),
-                                          ],
-                                        )),
-
-                                    Padding(
-                                        padding: EdgeInsets.only(
-                                            left: 25.0, right: 25.0, top: 25.0),
-                                        child: new Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: <Widget>[
-                                            new Column(
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: <Widget>[
-                                                new Text(
-                                                  'Password',
-                                                  style: TextStyle(
-                                                    color: Colors.white,
-                                                      fontSize: 16.0,
-                                                      fontWeight: FontWeight.bold),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        )),
-                                    Padding(
-                                        padding: EdgeInsets.only(
-                                            left: 25.0, right: 25.0, top: 2.0),
-                                        child: new Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: <Widget>[
-                                            new Flexible(
-                                              child: new TextField(
-                                                obscureText: _isObscure,
-                                                keyboardType: TextInputType.visiblePassword,
-                                                decoration: InputDecoration(
                                                   hintStyle: TextStyle(color: Colors.white54),
-                                                  suffixIcon: IconButton(
-                                                    color: Colors.white,
-                                                      onPressed: (){
-                                                        setState(() {
-                                                          _isObscure = !_isObscure;
-                                                        });
-                                                      },
-                                                      icon:Icon(
-                                                        _isObscure?Icons.visibility : Icons.visibility_off
-                                                      )
-                                                  ),
-                                                    hintText: "Password"),
-                                                enabled: _status,
+                                                ),
                                               ),
                                             ),
                                           ],
                                         )),
+
 
                                   ],
                                 ),
                               ),
                             ),
-                           ),
-                           SizedBox(
-                             height: height * 0.2,
-                             child: Container(
-                               child: Padding(
+                          ),
+
+                          SizedBox(
+                            height: height * 0.2,
+                            child: Container(
+                                child: Padding(
                                   padding: EdgeInsets.only(left: 25.0, right: 25.0, top: 0.0),
                                   child: new Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -219,7 +191,7 @@ class _LoginState extends State<Login> {
                                           padding: EdgeInsets.only(right: 10.0),
                                           child: Container(
                                               child: new ElevatedButton(
-                                                child: new Text("Login"),
+                                                child: new Text("Send"),
                                                 onPressed: () {
                                                   setState(() {
                                                     Navigator.push(
@@ -229,13 +201,13 @@ class _LoginState extends State<Login> {
                                                   });
                                                 },
                                                 style: ElevatedButton.styleFrom(
-                                                  primary: kErrorColor,
-                                                  elevation: 8.0,
-                                                  padding: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
-                                                  textStyle: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 20.0
-                                                  )
+                                                    primary: kErrorColor,
+                                                    elevation: 8.0,
+                                                    padding: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
+                                                    textStyle: TextStyle(
+                                                        fontWeight: FontWeight.bold,
+                                                        fontSize: 20.0
+                                                    )
                                                 ),
                                               )),
                                         ),
@@ -252,14 +224,8 @@ class _LoginState extends State<Login> {
                                           child: Padding(
                                             padding: EdgeInsets.only(left: 10.0),
                                             child: Container(
-                                                  child: new Text("Forgot password ? ",
-                                                  style: TextStyle(
-                                                    color: Colors.red,
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 16.0
-                                                  ),
-                                                  ),
-                                                ),
+
+                                            ),
                                           ),
                                         ),
                                         flex: 2,
@@ -267,40 +233,8 @@ class _LoginState extends State<Login> {
                                     ],
                                   ),
                                 )
-                          ),
-                           ),
-                           SizedBox(
-                             height: height * 0.07,
-                             child: Container(
-                               decoration: BoxDecoration(
-                                 image: DecorationImage(
-                                   image: AssetImage("assets/images/glass.jpg"),
-                                   fit: BoxFit.cover
-                                 ),
-                               ),
-
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  GestureDetector(
-                                    onTap: (){
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => Registration()),
-                                      );
-                                    },
-                                    child: Text('Dont have an account? Sign up' ,
-                                        style: TextStyle(
-                                          color: Colors.red,
-                                        )
-                                    ),
-                                  )
-
-                                ],
-                              ),
-                          ),
-                           ),
+                            ),
+                          )
                         ],
                       )
                     ],
@@ -313,4 +247,6 @@ class _LoginState extends State<Login> {
       ),
     );
   }
+
 }
+

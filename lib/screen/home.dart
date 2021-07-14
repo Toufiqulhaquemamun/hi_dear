@@ -20,11 +20,38 @@ class _HomeState extends State<Home>
     return Scaffold(
       drawer: NavDrawer(),
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
         elevation: 0.0,
         centerTitle: true,
-        title: Text('Home',
-            style: TextStyle(color: Colors.white, fontSize: 20)),
-        backgroundColor: Color(0xFF339933),
+        title: Text('Browse',
+            style: TextStyle(color: Colors.black, fontSize: 20)),
+        backgroundColor: Color(0xFFFFFFFF),
+
+        actions: [
+          IconButton(
+            onPressed: () {},
+            padding: EdgeInsets.fromLTRB(0, 0, 25, 0),
+            icon: Icon(Icons.widgets_outlined),
+          ),
+        ],
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child:  Align(
+                alignment: FractionalOffset.center,
+                child: Text(
+                  "₹ 1000",
+                )
+            ),
+            flex: 6,
+          ),
+
+          Expanded(
+            flex: 4,
+            child: Placeholder(),
+          )
+        ],
       ),
     );
   }
