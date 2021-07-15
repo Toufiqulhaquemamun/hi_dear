@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:hi_dear/screen/profile/profile.dart';
+import 'package:swipe/swipe.dart';
 
 
 import '../consts.dart';
@@ -14,6 +15,8 @@ class Home extends StatefulWidget
 
 class _HomeState extends State<Home>
 {
+
+  String _message = 'Swipe your screen';
   @override
   Widget build(BuildContext context) {
 
@@ -40,9 +43,40 @@ class _HomeState extends State<Home>
           Expanded(
             child:  Align(
                 alignment: FractionalOffset.center,
-                child: Text(
-                  "₹ 1000",
-                )
+                child: Swipe(
+                  child: Container(
+                    color: Colors.teal,
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
+                    child: Center(
+                      child: Text(_message,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 32,
+                          )),
+                    ),
+                  ),
+                  onSwipeUp: () {
+                    setState(() {
+                      _message = 'Swiping up';
+                    });
+                  },
+                  onSwipeDown: () {
+                    setState(() {
+                      _message = 'Swiping down';
+                    });
+                  },
+                  onSwipeLeft: () {
+                    setState(() {
+                      _message = 'Swiping left';
+                    });
+                  },
+                  onSwipeRight: () {
+                    setState(() {
+                      _message = 'Swiping right';
+                    });
+                  },
+                ),
             ),
             flex: 6,
           ),
