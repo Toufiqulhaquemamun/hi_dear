@@ -6,6 +6,7 @@ import 'package:swipe/swipe.dart';
 
 
 import '../consts.dart';
+import 'chat/chatScreen.dart';
 
 class Home extends StatefulWidget
 {
@@ -19,6 +20,9 @@ class _HomeState extends State<Home>
   String _message = 'Swipe your screen';
   @override
   Widget build(BuildContext context) {
+
+    var width=MediaQuery.of(context).size.width;
+    var height=MediaQuery.of(context).size.height;
 
     return Scaffold(
       drawer: NavDrawer(),
@@ -43,47 +47,80 @@ class _HomeState extends State<Home>
           Expanded(
             child:  Align(
                 alignment: FractionalOffset.center,
-                child: Swipe(
-                  child: Container(
-                    color: Colors.teal,
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    child: Center(
-                      child: Text(_message,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 32,
-                          )),
+                child: Container(
+                  child: Swipe(
+                    child: Container(
+                      height: height*0.38,
+                      width: width*0.6,
+                      child: Card(
+                          elevation: 3.0,
+                          child: Container(
+                            color: Colors.white54,
+                            padding: EdgeInsets.fromLTRB(width*0.05, height*0.02, width*0.05, height*0.02),
+                            child: Image.asset("assets/images/demo.png",fit: BoxFit.fill),
+                          )
+                        ),
                     ),
+                    onSwipeUp: () {
+                      setState(() {
+                        _message = 'Swiping up';
+                      });
+                    },
+                    onSwipeDown: () {
+                      setState(() {
+                        _message = 'Swiping down';
+                      });
+                    },
+                    onSwipeLeft: () {
+                      setState(() {
+                        _message = 'Swiping left';
+                      });
+                    },
+                    onSwipeRight: () {
+                      setState(() {
+                        _message = 'Swiping right';
+                      });
+                    },
                   ),
-                  onSwipeUp: () {
-                    setState(() {
-                      _message = 'Swiping up';
-                    });
-                  },
-                  onSwipeDown: () {
-                    setState(() {
-                      _message = 'Swiping down';
-                    });
-                  },
-                  onSwipeLeft: () {
-                    setState(() {
-                      _message = 'Swiping left';
-                    });
-                  },
-                  onSwipeRight: () {
-                    setState(() {
-                      _message = 'Swiping right';
-                    });
-                  },
                 ),
             ),
             flex: 6,
           ),
-
           Expanded(
             flex: 4,
-            child: Placeholder(),
+            child: Container(
+
+                child: Stack(
+                  children: [
+                    CustomPaint(
+                      size: Size(width,height),
+                      painter: CurvedPainter(),
+                    ),
+                    Positioned(
+                      top: 100.0,
+                      left: 230.0,
+                      child: Container(
+
+                        child: Image(
+                          image: AssetImage("assets/images/heart.png"),
+                        )
+                      ),
+                    ),
+
+                    Positioned(
+                      top: 100.0,
+                      left: 50.0,
+                      child: Container(
+
+                          child: Image(
+                            image: AssetImage("assets/images/cross.png"),
+                          )
+                      ),
+                    )
+                  ],
+
+                ),
+            ),
           )
         ],
       ),
@@ -92,6 +129,31 @@ class _HomeState extends State<Home>
   
 }
 
+
+class CurvedPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    var paint = Paint()
+      ..color = Colors.black12
+      ..strokeWidth = 2;
+
+    var path = Path();
+
+    path.moveTo(0, size.height * 0.2);
+
+    path.quadraticBezierTo(size.width*.5, size.height*0.0001,
+        size.width, size.height * 0.2);
+    path.lineTo(size.width, size.height);
+    path.lineTo(0, size.height);
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
+  }
+}
 class NavDrawer extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -149,7 +211,11 @@ class NavDrawer extends StatelessWidget{
                   ListTile(
                     leading: Icon(Icons.widgets),
                     title: Text('Massage'),
-                    // onTap: () =>Toast.show("Coming soon", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM),
+                    onTap: (){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ChatsScreen()));
+                    },
                   ),
                   ListTile(
                     leading: Icon(Icons.favorite),

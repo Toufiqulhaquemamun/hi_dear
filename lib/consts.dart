@@ -32,6 +32,8 @@ const kContentColorDarkTheme = Color(0xFFF5FCF9);
 const kWarninngColor = Color(0xFFF3BB1C);
 const kErrorColor = Color(0xFFF03738);
 
+const kDefaultPadding = 20.0;
+
 Color kBlackColor = Colors.black; //('#1C1C1E');
 Color kBlackColor2 = HexColor('#121212');// Hexcolor('#161616');
 Color kBlackColor3 = HexColor('#1C1C1E');// Hexcolor('#2C2C2E');
