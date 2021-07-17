@@ -4,7 +4,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../consts.dart';
+import '../constants.dart';
 import 'home.dart';
 
 class ForgetPassword extends StatefulWidget

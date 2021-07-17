@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:hi_dear/screen/forgetpass.dart';
 import 'package:hi_dear/screen/registration.dart';
 
-import '../consts.dart';
+import '../constants.dart';
 import 'home.dart';
 
 class Login extends StatefulWidget {

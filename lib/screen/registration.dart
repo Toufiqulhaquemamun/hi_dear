@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hi_dear/screen/login.dart';
 
-import '../consts.dart';
+import '../constants.dart';
 
 class Registration extends StatefulWidget
 {

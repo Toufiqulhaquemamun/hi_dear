@@ -1,12 +1,9 @@
 
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hi_dear/model/chat.dart';
 
-import '../../consts.dart';
+import '../../constants.dart';
 
 
 class ChatCard extends StatelessWidget {

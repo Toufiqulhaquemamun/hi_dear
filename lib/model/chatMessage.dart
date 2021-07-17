@@ -23,7 +23,7 @@ List demeChatMessages = [
     isSender: false,
   ),
   ChatMessage(
-    text: "Hello, How are you?",
+    text: "Hello, How are you? I was at home quite late but i had a good a good rest",
     messageType: ChatMessageType.text,
     messageStatus: MessageStatus.viewed,
     isSender: true,

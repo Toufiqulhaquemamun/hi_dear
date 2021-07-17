@@ -2,10 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:hi_dear/screen/profile/profile.dart';
+import 'package:hi_dear/screen/request/requestScreen.dart';
 import 'package:swipe/swipe.dart';
 
 
-import '../consts.dart';
+import '../constants.dart';
 import 'chat/chatScreen.dart';
 
 class Home extends StatefulWidget
@@ -89,7 +90,6 @@ class _HomeState extends State<Home>
           Expanded(
             flex: 4,
             child: Container(
-
                 child: Stack(
                   children: [
                     CustomPaint(
@@ -220,7 +220,11 @@ class NavDrawer extends StatelessWidget{
                   ListTile(
                     leading: Icon(Icons.favorite),
                     title: Text('Match Request'),
-                    // onTap: () =>Toast.show("Coming soon", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM) ,
+                    onTap:  (){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => RequestScreen()));
+                    },
                   ),
                   ListTile(
                     leading: Icon(Icons.border_color),

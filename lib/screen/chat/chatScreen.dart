@@ -3,8 +3,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hi_dear/model/chat.dart';
+import 'package:hi_dear/screen/massage/massageScreen.dart';
 
-import '../../consts.dart';
+import '../../constants.dart';
 import '../home.dart';
 import 'chat_card.dart';
 
@@ -69,13 +70,14 @@ class Body extends StatelessWidget {
           child: ListView.separated(
             itemCount: chatsData.length,
             itemBuilder: (context, index) => ChatCard(
-              chat: chatsData[index], press: () {  },
-              // press: () => Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => MessagesScreen(),
-              //   ),
-              // ),
+              chat: chatsData[index],
+              // press: () {  },
+              press: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MassageScreen(),
+                ),
+              ),
             ),
             separatorBuilder: (context, index) {
               return Divider();

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hi_dear/screen/home.dart';
 import 'package:hi_dear/screen/login.dart';
 import 'package:hi_dear/screen/registration.dart';
+import 'package:hi_dear/screen/welcomeScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -38,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body: Login(),
+      body: Welcome(),
     );
   }
 }
