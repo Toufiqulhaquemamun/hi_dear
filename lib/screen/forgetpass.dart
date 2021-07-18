@@ -68,7 +68,7 @@ class _ForgetPassState extends State<ForgetPassword>
                             ),
                           ),
                           SizedBox(
-                           height:height * 0.5,
+                           height:height * 0.6,
                             child: Container(
                               child: Padding(
                                 padding: EdgeInsets.only(bottom: 0.0),

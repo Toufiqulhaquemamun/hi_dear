@@ -3,10 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:hi_dear/screen/profile/profile.dart';
 import 'package:hi_dear/screen/request/requestScreen.dart';
+import 'package:hi_dear/screen/settingScreen.dart';
 import 'package:swipe/swipe.dart';
 
 
 import '../constants.dart';
+import 'TipsScreen.dart';
 import 'chat/chatScreen.dart';
 
 class Home extends StatefulWidget
@@ -169,7 +171,7 @@ class NavDrawer extends StatelessWidget{
                 padding: EdgeInsets.zero,
                 children: <Widget>[
                   Container(
-                    height: 250.0,
+                    height: height*0.4,
                     child: DrawerHeader(
                       child: new Column(
                         children: <Widget>[
@@ -229,7 +231,11 @@ class NavDrawer extends StatelessWidget{
                   ListTile(
                     leading: Icon(Icons.border_color),
                     title: Text('Startup Tips'),
-                    // onTap: _launchURL,
+                    onTap: (){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Tips()));
+                    },
                   ),
                   ListTile(
                     leading: Icon(Icons.rss_feed),
@@ -239,7 +245,11 @@ class NavDrawer extends StatelessWidget{
                   ListTile(
                     leading: Icon(Icons.settings),
                     title: Text('Settings'),
-                    // onTap: () =>Toast.show("Coming soon", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Setting()));
+                    },
                   ),
                 ],
               ),
@@ -268,7 +278,6 @@ class NavDrawer extends StatelessWidget{
             ),
           ],
         ),
-
       ),
     );
   }
