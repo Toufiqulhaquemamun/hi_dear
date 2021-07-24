@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:hi_dear/screen/feed/feedScreen.dart';
 import 'package:hi_dear/screen/profile/profile.dart';
 import 'package:hi_dear/screen/request/requestScreen.dart';
 import 'package:hi_dear/screen/settingScreen.dart';
@@ -240,7 +241,11 @@ class NavDrawer extends StatelessWidget{
                   ListTile(
                     leading: Icon(Icons.rss_feed),
                     title: Text('Feed'),
-                    // onTap: _launchPolicyURL,
+                    onTap: (){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => FeedScreen()));
+                    },
                   ),
                   ListTile(
                     leading: Icon(Icons.settings),
