@@ -2,6 +2,9 @@
 
 hi_dear is a cross-platfrom instant chat application built with Flutter.
 
+
+<a target="_blank" href='https://play.google.com/store/apps/details?id=com.nbglobal.hidear'><img alt='Get it on Google Play' src='https://goldtonemusicgroup.com/img/goldtone/main-page/news/playstore-badge.png' height='48px'/></a>
+
 ## Features
 - Send and recieve realtime messages
 - Send photos and videos
